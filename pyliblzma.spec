@@ -4,7 +4,7 @@
 #
 Name     : pyliblzma
 Version  : 0.5.3
-Release  : 12
+Release  : 13
 URL      : https://pypi.python.org/packages/source/p/pyliblzma/pyliblzma-0.5.3.tar.bz2
 Source0  : https://pypi.python.org/packages/source/p/pyliblzma/pyliblzma-0.5.3.tar.bz2
 Summary  : Python bindings for liblzma
