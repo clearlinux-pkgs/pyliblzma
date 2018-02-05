@@ -1,0 +1,22 @@
+From 554dd0800fba29a105dd51105bbc40edaa8cc586 Mon Sep 17 00:00:00 2001
+From: William Douglas <william.douglas@intel.com>
+Date: Mon, 5 Feb 2018 17:07:19 +0000
+Subject: [PATCH] Force /usr/bin/python2
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 3ae7e37..8d2ce74 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2
+ # -*- coding: utf-8 -*-
+ #
+ # Python Bindings for libLZMA
+-- 
+2.16.1
+
