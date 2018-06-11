@@ -4,13 +4,12 @@
 #
 Name     : pyliblzma
 Version  : 0.5.3
-Release  : 16
+Release  : 17
 URL      : https://pypi.python.org/packages/source/p/pyliblzma/pyliblzma-0.5.3.tar.bz2
 Source0  : https://pypi.python.org/packages/source/p/pyliblzma/pyliblzma-0.5.3.tar.bz2
 Summary  : Python bindings for liblzma
 Group    : Development/Tools
 License  : LGPL-3.0 LGPL-3.0+
-Requires: pyliblzma-legacypython
 Requires: pyliblzma-python
 BuildRequires : pbr
 BuildRequires : pip
@@ -18,6 +17,7 @@ BuildRequires : pkgconfig(liblzma)
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : setuptools-legacypython
 BuildRequires : xz-dev
 Patch1: 0001-Force-usr-bin-python2.patch
 
@@ -38,7 +38,6 @@ legacypython components for the pyliblzma package.
 %package python
 Summary: python components for the pyliblzma package.
 Group: Default
-Requires: pyliblzma-legacypython
 
 %description python
 python components for the pyliblzma package.
@@ -53,7 +52,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1517851177
+export SOURCE_DATE_EPOCH=1528753879
 python2 setup.py build -b py2
 
 %check
