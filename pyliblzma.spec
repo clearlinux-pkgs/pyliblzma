@@ -14,7 +14,7 @@ Requires: pyliblzma-python
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : pkgconfig(liblzma)
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
