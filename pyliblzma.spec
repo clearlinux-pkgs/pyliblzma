@@ -4,19 +4,17 @@
 #
 Name     : pyliblzma
 Version  : 0.5.3
-Release  : 18
+Release  : 19
 URL      : https://pypi.python.org/packages/source/p/pyliblzma/pyliblzma-0.5.3.tar.bz2
 Source0  : https://pypi.python.org/packages/source/p/pyliblzma/pyliblzma-0.5.3.tar.bz2
 Summary  : Python bindings for liblzma
 Group    : Development/Tools
 License  : LGPL-3.0 LGPL-3.0+
+Requires: pyliblzma-license
 Requires: pyliblzma-python
-BuildRequires : pbr
-BuildRequires : pip
+BuildRequires : buildreq-distutils
+BuildRequires : buildreq-distutils3
 BuildRequires : pkgconfig(liblzma)
-
-BuildRequires : python3-dev
-BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
 BuildRequires : xz-dev
 Patch1: 0001-Force-usr-bin-python2.patch
@@ -33,6 +31,14 @@ Requires: python-core
 
 %description legacypython
 legacypython components for the pyliblzma package.
+
+
+%package license
+Summary: license components for the pyliblzma package.
+Group: Default
+
+%description license
+license components for the pyliblzma package.
 
 
 %package python
@@ -52,16 +58,18 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1528753879
+export SOURCE_DATE_EPOCH=1535067860
 python2 setup.py build -b py2
 
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test || :
+PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test || :
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/pyliblzma
+cp COPYING %{buildroot}/usr/share/doc/pyliblzma/COPYING
 python2 -tt setup.py build -b py2 install --root=%{buildroot}
 
 %files
@@ -70,6 +78,10 @@ python2 -tt setup.py build -b py2 install --root=%{buildroot}
 %files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/pyliblzma/COPYING
 
 %files python
 %defattr(-,root,root,-)
